@@ -7,17 +7,16 @@
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 </head>
-<body class="container-fluid d-flex flex-column justify-content-center align-items-center p-5">
-    <h1>Buscar Livros</h1>
-    <div id="alert"></div>
-    <div class="d-flex">
-        <input class="m-3 p-2 rounded-lg border" type="text" id="busca" placeholder="Digite o nome do livro">
-        <button class="btn btn-primary m-3" id="btnBuscar">Buscar</button>    
-    </div>
-    <div id="resultado_box" class="d-flex flex-column justify-content-center align-items-center">
-        <ul id="resultado" class="">
-
-        </ul>
+<body class="container-fluid">
+    <header class="d-flex flex-column justify-content-center align-items-center p-5">
+        <h1>Buscar Livros</h1>
+        <div id="alert"></div>
+        <div class="d-flex">
+            <input class="m-3 p-2 rounded-lg border" type="text" id="busca" placeholder="Digite o nome do livro">
+            <button class="btn btn-primary m-3" id="btnBuscar">Buscar</button>    
+        </div>
+    </header>
+    <div id="resultado" class="row-cols-4 d-flex justify-content-around align-items-center flex-wrap">
     </div>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj " crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>

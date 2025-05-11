@@ -11,11 +11,25 @@ function buscarLivros() {
             lista.innerHTML = '<li>Nenhum livro encontrado.</li>'; 
         }
 
-        // Mostra até 10 resultados
-        data.docs.slice(0, 10).forEach(livro => {
-            const item = document.createElement('li');
-            item.textContent = `${livro.title} — ${livro.author_name ? livro.author_name.join(', ') : 'Autor desconhecido'}`;
-            lista.appendChild(item);
+        data.docs.slice(0, 9).forEach(livro => {
+            const divLivro = document.createElement('div');
+            divLivro.className = 'd-flex flex-column align-items-center justify-content-center shadow m-3 divLivro';
+            divLivro.style.minHeight = '80vh';
+
+            const nomeLivro = document.createElement('p');
+            nomeLivro.className = 'mt-3' ;
+            nomeLivro.style.fontSize = '0.8rem';
+            const autorLivro = document.createElement('p');
+            autorLivro.className = 'h6';
+            autorLivro.textContent = livro.author_name ? `Autor: ${livro.author_name.join(', ')}` : 'Autor: Desconhecido';
+            const capa = document.createElement('img')
+            capa.className = 'mt-5 rounded-lg';
+            capa.src = livro.cover_edition_key ? `https://covers.openlibrary.org/b/olid/${livro.cover_edition_key}-M.jpg` : 'https://via.placeholder.com/150';
+            nomeLivro.textContent = `${livro.title}`;
+            divLivro.appendChild(capa);
+            divLivro.appendChild(nomeLivro);
+            divLivro.appendChild(autorLivro);
+            lista.appendChild(divLivro);
         });
     })
     .catch(err => {

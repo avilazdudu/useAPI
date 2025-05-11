@@ -4,29 +4,11 @@
     padding: 0;
     font-family: 'Poppins', sans-serif;
 }
-#resultado_box{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 500px;
-    width: 500px;
-    border-radius: 1rem;
-    border: 0.8rem double black;
-    background-color: #8B0000 !important;
-}
-#resultado{
-    margin: 0;
-    display: flex;
-    flex-direction: column ;
-    justify-content: center;
-    align-items: center;
-    height: 500px;
-    width: 100%;
-    font-size: 1rem;
-    background-color: #f0f0f0;
-}
 li{
     font-size: 0.8rem;
     margin-bottom: 1.2rem;
     width: 80%;
+}
+.divLivro {
+    border-radius: 1rem;
 }
