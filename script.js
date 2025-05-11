@@ -24,7 +24,7 @@ function buscarLivros() {
             autorLivro.textContent = livro.author_name ? `Autor: ${livro.author_name.join(', ')}` : 'Autor: Desconhecido';
             const capa = document.createElement('img')
             capa.className = 'mt-5 rounded-lg';
-            capa.src = livro.cover_edition_key ? `https://covers.openlibrary.org/b/olid/${livro.cover_edition_key}-M.jpg` : 'https://via.placeholder.com/150';
+            capa.src = livro.cover_edition_key ? `https://covers.openlibrary.org/b/olid/${livro.cover_edition_key}-M.jpg` : capa.alt = `${livro.title} - Capa não disponível`;
             nomeLivro.textContent = `${livro.title}`;
             divLivro.appendChild(capa);
             divLivro.appendChild(nomeLivro);
@@ -42,12 +42,24 @@ const btnBuscar = document.getElementById('btnBuscar');
 btnBuscar.addEventListener('click', () => {
     const alert = document.getElementById('alert');
     alert.innerHTML = `
-        <div class="alert alert-danger" role="alert">
-        Espere um momento, a API está buscando...
+         <div class="progress w-50 m-3">
+            <div id="barraProgresso" class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
         </div>`
     setTimeout(() => {
+        const barraProgresso = document.getElementById('barraProgresso');
+        let width = 10;
+        const interval = setInterval(() => {
+            if (width >= 100) {
+                clearInterval(interval);
+            } else {
+                width += 25;
+                barraProgresso.style.width = width + '%';
+            }
+        },600)
+    }, 600);
+    setTimeout(() => {
         alert.innerHTML = '';
-    }, 2400);
+    }, 3500);
     buscarLivros();
 });
 
@@ -57,13 +69,25 @@ if (inputBusca) {
         if (event.key === 'Enter') {
             buscarLivros();
             const alert = document.getElementById('alert');
-            alert.innerHTML = `
-                <div class="alert alert-danger" role="alert">
-                Espere um momento, a API está buscando...
-                </div>`
-            setTimeout(() => {
-                alert.innerHTML = '';
-            }, 2400);
+             alert.innerHTML = `
+         <div class="progress w-50 m-3">
+            <div id="barraProgresso" class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>`
+    setTimeout(() => {
+        const barraProgresso = document.getElementById('barraProgresso');
+        let width = 10;
+        const interval = setInterval(() => {
+            if (width >= 100) {
+                clearInterval(interval);
+            } else {
+                width += 25;
+                barraProgresso.style.width = width + '%';
+            }
+        },600)
+    }, 600);
+    setTimeout(() => {
+        alert.innerHTML = '';
+    }, 3500);
         }
     });
 }
